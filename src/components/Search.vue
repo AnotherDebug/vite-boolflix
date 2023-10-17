@@ -16,7 +16,7 @@ export default {
             <option value="3">Three</option>
         </select>
 
-        <button class="btn btn-danger">Search</button>
+        <button @click="$emit('startSearch')" class="btn btn-danger">Search</button>
     </div>
 </template>
 
