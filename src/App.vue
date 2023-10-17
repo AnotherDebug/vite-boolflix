@@ -48,7 +48,7 @@ export default {
 
     <Header />
 
-    <Search />
+    <Search @startSearch = "getApiTv" />
 
   </div>
 
