@@ -10,6 +10,11 @@ export default {
             imgPath: "https://image.tmdb.org/t/p/",
             imgDimension : "w342",
         }
+    },
+    computed: {
+        voteStars(){
+            return Math.ceil(this.item.vote_average / 2);
+        }
     }
 }
 </script>
@@ -22,12 +27,13 @@ export default {
 
             <!-- SINGOLA CARD -->
             <div class="card">
-                <img :src="`${imgPath}${imgDimension}`+ item.poster_path" alt="">
+                <img :src="`${imgPath}${imgDimension}`+ item.poster_path" :alt="item.title || item.name">
                 <div class="info">
                     <p>{{ item.title || item.name }}</p>
                     <p>{{ item.original_title || item.original_name }}</p>
-                    <p>{{ item.original_language }}</p>
-                    <p>{{ item.vote_average }}</p>
+                    <img src="../../../public/en.png" alt="">
+                    <!-- <img :src="`../../../public/` + item.original_language + `.png`" alt=""> -->
+                    <p v-for="(n, index) in 5" :key="index" class="fa-star" :class="(n <= voteStars) ? 'fa-solid' : 'fa-regular' "></p>
                 </div>
             </div>
 
@@ -80,6 +86,10 @@ export default {
             p {
                 letter-spacing: 1px;
                 font-size: 15px;
+            }
+            img {
+                height: 10px;
+                width: 20px;
             }
         }
 
