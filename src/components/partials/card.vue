@@ -1,12 +1,10 @@
 <script>
+import { store } from '../../data/store';
+
 export default {
     name: 'Card',
     props: {
-        original_name: String,
-        name: String,
-        original_language: String,
-        vote_average: String,
-        overview: String
+        item: Object
     }
 }
 </script>
@@ -15,14 +13,16 @@ export default {
 <template>
     <div class=" my-5 auto">
 
-        <div class="wrapper d-flex flex-wrap">
+        <div class="wrapper">
 
             <!-- SINGOLA CARD -->
             <div class="card">
                 <img src="../../../public/it.png" alt="">
                 <div class="info">
-                    <h1>Title</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>{{ item.title }}</p>
+                    <p>{{ item.original_title }}</p>
+                    <p>{{ item.original_language }}</p>
+                    <p>{{ item.vote_average }}</p>
                 </div>
             </div>
 
@@ -35,14 +35,14 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
     display: flex;
+    flex-wrap: wrap;
     width: 90%;
     margin: auto;
 
     .card {
-        width: calc(100% / 6 - 20px);
-        min-width: 150px;
+        width: 150px;
         height: 250px;
-        padding: 1.5rem;
+        padding: 0 20px;
         background: white;
         position: relative;
         display: flex;
@@ -50,6 +50,7 @@ export default {
         transition: 0.4s ease-out;
         box-shadow: 0px 7px 10px rgba(black, 0.5);
         margin: 10px;
+        margin-top: 100px;
 
         &:hover {
 
@@ -71,14 +72,9 @@ export default {
             transform: translateY(30px);
             transition: 0.5s;
 
-            h1 {
-                margin: 0px
-            }
-
             p {
                 letter-spacing: 1px;
                 font-size: 15px;
-                margin-top: 8px;
             }
         }
 
