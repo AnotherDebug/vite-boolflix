@@ -1,10 +1,15 @@
 <script>
-import { store } from '../../data/store';
 
 export default {
     name: 'Card',
     props: {
         item: Object
+    },
+    data() {
+        return{
+            imgPath: "https://image.tmdb.org/t/p/",
+            imgDimension : "w342",
+        }
     }
 }
 </script>
@@ -17,10 +22,10 @@ export default {
 
             <!-- SINGOLA CARD -->
             <div class="card">
-                <img src="../../../public/it.png" alt="">
+                <img :src="`${imgPath}${imgDimension}`+ item.poster_path" alt="">
                 <div class="info">
-                    <p>{{ item.title }}</p>
-                    <p>{{ item.original_title }}</p>
+                    <p>{{ item.title || item.name }}</p>
+                    <p>{{ item.original_title || item.original_name }}</p>
                     <p>{{ item.original_language }}</p>
                     <p>{{ item.vote_average }}</p>
                 </div>
