@@ -41,7 +41,6 @@ export default {
     .card {
         width: calc(100% / 6 - 20px);
         height: 250px;
-        border-radius: 15px;
         padding: 1.5rem;
         background: white;
         position: relative;
@@ -89,7 +88,6 @@ export default {
             position: absolute;
             top: 0;
             left: 0;
-            border-radius: 15px;
         }
 
         &:before {
