@@ -18,16 +18,29 @@ export default {
 
 <template>
     <main>
-        <Card v-for="card in store.tvResults" 
+
+        <Card />
+        <!-- <Card v-for="card in store.tvResults" 
         :key="card.id"
         :original_name="card.original_name"
         :name = "card.name"
         :original_language = "card.original_language"
         :vote_average = "card.vote_average"
-        :overview = "card.overview" />
+        :overview = "card.overview" /> -->
 
     </main>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+@use '../scss/partials/variables' as *;
+
+main {
+    height: calc(100vh - 70px);
+    background-color: $primary-color;
+    overflow-y: scroll;
+    overflow: auto;
+}
+
+</style>
