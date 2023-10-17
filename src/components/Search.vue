@@ -1,17 +1,24 @@
 <script>
 export default {
-name: 'Search'
+    name: 'Search'
 }
 </script>
 
 
 <template>
+    <div class="container d-flex align-items-center justify-content-end">
+        <input type="search" name="search" id="search" placeholder="Search...">
 
-    <div>Search</div>
-  
+        <select class="form-select mx-4" style="width: 15%;" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+
+        <button class="btn btn-danger">Search</button>
+    </div>
 </template>
 
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
