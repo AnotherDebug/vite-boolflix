@@ -7,7 +7,7 @@ name: 'Header'
 
 <template>
 
-    <Main>Main</Main>
+ <header>Header</header>
   
 </template>
 
