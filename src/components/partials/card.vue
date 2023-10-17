@@ -40,6 +40,7 @@ export default {
 
     .card {
         width: calc(100% / 6 - 20px);
+        min-width: 150px;
         height: 250px;
         padding: 1.5rem;
         background: white;

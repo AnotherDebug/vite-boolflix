@@ -1,13 +1,19 @@
 <script>
+import { store } from '../data/store';
 export default {
-    name: 'Search'
+    name: 'Search',
+    data() {
+        return{
+            store
+        }
+    }
 }
 </script>
 
 
 <template>
     <div class="container d-flex align-items-center justify-content-end">
-        <input type="search" name="search" id="search" placeholder="Search...">
+        <input v-model="store.query"  type="search" name="search" id="search" placeholder="Search...">
 
         <select class="form-select mx-4" style="width: 15%;" aria-label="Default select example">
             <option selected>Open this select menu</option>
