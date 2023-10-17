@@ -3,6 +3,9 @@ import Card from './partials/card.vue';
 import { store } from '../data/store';
 export default {
     name: 'Main',
+    props:{
+        title: String
+    },
     components: {
         Card
     },
@@ -19,14 +22,11 @@ export default {
 <template>
     <main>
 
-        <Card />
-        <!-- <Card v-for="card in store.tvResults" 
-        :key="card.id"
-        :original_name="card.original_name"
-        :name = "card.name"
-        :original_language = "card.original_language"
-        :vote_average = "card.vote_average"
-        :overview = "card.overview" /> -->
+        <h1>{{ title }}</h1>
+
+        <Card v-for="item in store[type]"
+        :key="item.id"
+        :item="item" />
 
     </main>
 </template>
@@ -37,10 +37,15 @@ export default {
 @use '../scss/partials/variables' as *;
 
 main {
-    height: calc(100vh - 70px);
+    display: flex;
+    flex-wrap: wrap;
+    height: 150vh;
     background-color: $primary-color;
-    overflow-y: scroll;
-    overflow: auto;
+    overflow: hidden;
+    h1 {
+        color: white;
+        margin: 50px;
+    }
 }
 
 </style>
