@@ -40,8 +40,8 @@ export default {
     margin: auto;
 
     .card {
-        width: 150px;
-        height: 250px;
+        width: 200px;
+        height: 300px;
         padding: 0 20px;
         background: white;
         position: relative;

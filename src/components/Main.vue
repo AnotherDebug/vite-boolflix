@@ -39,7 +39,7 @@ export default {
 main {
     display: flex;
     flex-wrap: wrap;
-    height: 150vh;
+    height: 100%;
     background-color: $primary-color;
     overflow: hidden;
     h1 {

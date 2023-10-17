@@ -7,7 +7,7 @@ export const store = reactive({
         query: '',
         language: 'it-IT',
     },
-    type: 'movie',
+    type: '',
     tvResults: [],
     moviesResults: []
 });
