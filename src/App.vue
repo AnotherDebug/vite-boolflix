@@ -14,21 +14,21 @@ export default {
   data() {
     return {
       store,
+      message: "Fai una ricerca"
     }
   },
   methods: {
-    getApiTv() {
-      const apiTv = store.apiUrl + store.tvSearch;
-      axios.get(apiTv, {
-        params: {
-          api_key: store.api_key,
-          query: store.query,
-          language: store.language
-        }
+    getApi(type) {
+      axios.get(store.apiUrl + store.type, {
+        params: store.params
       })
         .then(res => {
-          store.tvResults = res.data.results;
-          console.log(store.tvResults);
+
+          store[type] = res.data.results;
+        
+            console.log(store.moviesResults);
+            console.log(store.tvResults);
+         
         })
         .catch(e => {
           console.log(e);
@@ -36,7 +36,7 @@ export default {
     }
   },
   mounted() {
-    this.getApiTv();
+    this.getApi;
   }
 
 }
@@ -48,12 +48,16 @@ export default {
 
     <Header />
 
-    <Search @startSearch = "getApiTv" />
+    <Search @startSearch="getApi" />
 
   </div>
 
 
-  <Main />
+  <Main title="Film" />
+  <Main title="Tv" />
+
+  
+  
 </template>
 
 
