@@ -11,8 +11,8 @@ export default {
             imgPath: "https://image.tmdb.org/t/p/",
             imgDimension: "w342",
             languageFlags: {
-                en: '../../../public/en.png',
-                it: '../../../public/it.png'
+                en: '/en.png',
+                it: '/it.png'
             }
         }
     },
@@ -35,14 +35,15 @@ export default {
     <div class="row m-auto my-3 ">
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img :src="`${imgPath}${imgDimension}` + item.poster_path" :alt="item.title || item.name">
+                <img v-if="item.poster_path" :src="`${imgPath}${imgDimension}` + item.poster_path" :alt="item.title || item.name">
+                <img v-else :src="`/no-image-icon-23500.jpg`" :alt="item.title || item.name">
                 <div class="card-body">
                     <h5 class="card-title">{{ item.title || item.name }}</h5>
                     <p class="card-text">{{ item.original_title || item.original_name }}</p>
                     <img v-if="languageFlags.hasOwnProperty(item.original_language)"
                         :src="languageFlags[item.original_language]" alt="">
                     <p v-else>{{ `Lang: "${initialWords}"` }}</p>
-                    <p v-for="(n, index) in 5" :key="index" class="fa-star mt-4" :class="(n <= voteStars) ? 'fa-solid' : 'fa-regular' "></p>
+                    <p v-for="(n, index) in 5" :key="index" class="fa-star mt-4" style="color: darkgoldenrod;" :class="(n <= voteStars) ? 'fa-solid' : 'fa-regular' "></p>
                 </div>
             </div>
         </div>
@@ -77,6 +78,7 @@ export default {
 .row{
     .col{
         .card{
+            height: 100%;
             .card-body{
                 
                 img{

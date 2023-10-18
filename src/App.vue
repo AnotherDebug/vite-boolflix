@@ -34,8 +34,7 @@ export default {
     }
   },
   mounted() {
-    this.getApi('movie');
-    this.getApi('tv');
+    this.getApi('movie'||'tv');
   }
 
 }
