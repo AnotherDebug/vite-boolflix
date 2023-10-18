@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       store,
-      message: "Fai una ricerca"
+      message: "Fai una ricerca su Films e Serie tv..."
     }
   },
   methods: {
