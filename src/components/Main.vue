@@ -4,7 +4,8 @@ import { store } from '../data/store';
 export default {
     name: 'Main',
     props:{
-        title: String
+        title: String,
+        type: String
     },
     components: {
         Card
@@ -20,9 +21,9 @@ export default {
 
 
 <template>
-    <h1>{{ title }}</h1>
+    
     <main>
-
+        <h1>{{ title }}</h1>
         <Card v-for="item in store[type]"
         :key="item.id"
         :item="item" />

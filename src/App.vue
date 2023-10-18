@@ -32,9 +32,6 @@ export default {
           console.log(e);
         })
     }
-  },
-  mounted() {
-    this.getApi('movie'||'tv'||'multi');
   }
 
 }
@@ -46,18 +43,16 @@ export default {
 
     <Header />
 
-    <Search @startSearch="getApi" />
+    <Search @startSearch="getApi(store.type)" />
 
   </div>
 
-  <h3 v-if="store.type == ''" class="text-center py-4 text-white m-0" style="background-color: #323032;">{{ message }}</h3>
+  <h3 v-if="store.type == ''" class="text-center py-4 text-white m-0" style="background-color: #323032; height: calc(100vh - 70px);">{{ message }}</h3>
 
-  <Main v-if="store.moviesResults.length > 0" title="Film" type="movie" />
-  <Main v-if="store.tvResults.length > 0" title="tv" type="tv" />
-
-  
-  
+  <Main v-if="store.type == 'movie' && store.movie.length > 0" title="Films" :type="store.type" />
+  <Main v-if="store.type == 'tv' && store.tv.length > 0" title="Serie Tv" :type="store.type" />
 </template>
+
 
 
 <style lang="scss">
