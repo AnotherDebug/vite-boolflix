@@ -8,6 +8,6 @@ export const store = reactive({
         language: 'it-IT',
     },
     type: '',
-    tvResults: [],
-    moviesResults: []
+    movie: [],
+    tv: []
 });
