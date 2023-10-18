@@ -3,9 +3,6 @@ import Card from './partials/card.vue';
 import { store } from '../data/store';
 export default {
     name: 'Main',
-    props:{
-        title: String
-    },
     components: {
         Card
     },
@@ -21,8 +18,6 @@ export default {
 
 <template>
     <main>
-
-        <h1>{{ title }}</h1>
 
         <Card v-for="item in store[type]"
         :key="item.id"

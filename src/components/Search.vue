@@ -16,7 +16,7 @@ export default {
         <input v-model="store.params.query"  type="search" name="search" id="search" placeholder="Search...">
 
         <select v-model="store.type" class="form-select mx-4"  aria-label="Default select example">
-            <option value="">Tutti</option>
+            <option value="multi">Tutti</option>
             <option value="movie">Films</option>
             <option value="tv">Serie Tv</option>
         </select>

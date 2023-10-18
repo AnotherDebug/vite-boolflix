@@ -26,9 +26,7 @@ export default {
 
           store[type] = res.data.results;
         
-            console.log(store.moviesResults);
-            console.log(store.tvResults);
-         
+            console.log(store[type]);
         })
         .catch(e => {
           console.log(e);
@@ -36,7 +34,8 @@ export default {
     }
   },
   mounted() {
-    this.getApi;
+    this.getApi('movie');
+    this.getApi('tv');
   }
 
 }
@@ -52,6 +51,7 @@ export default {
 
   </div>
 
+  <h3 class="text-center py-4 text-white m-0" style="background-color: #323032;">{{ message }}</h3>
 
   <Main title="Film" />
   <Main title="Tv" />
