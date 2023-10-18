@@ -34,7 +34,7 @@ export default {
     }
   },
   mounted() {
-    this.getApi('movie'||'tv');
+    this.getApi('movie'||'tv'||'multi');
   }
 
 }
@@ -50,10 +50,10 @@ export default {
 
   </div>
 
-  <h3 class="text-center py-4 text-white m-0" style="background-color: #323032;">{{ message }}</h3>
+  <h3 v-if="store.type == ''" class="text-center py-4 text-white m-0" style="background-color: #323032;">{{ message }}</h3>
 
-  <Main title="Film" />
-  <Main title="Tv" />
+  <Main v-if="store.moviesResults.length > 0" title="Film" type="movie" />
+  <Main v-if="store.tvResults.length > 0" title="tv" type="tv" />
 
   
   

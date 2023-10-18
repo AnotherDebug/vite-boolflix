@@ -4,7 +4,6 @@ export default {
     name: 'Card',
     props: {
         item: Object,
-        // title: String
     },
     data() {
         return {
@@ -30,7 +29,6 @@ export default {
 
 
 <template>
-    <!-- <h1>{{ title }}</h1> -->
 
     <div class="row m-auto my-3 ">
         <div class="col">
